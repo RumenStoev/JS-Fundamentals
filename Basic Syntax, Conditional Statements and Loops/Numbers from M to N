@@ -1,0 +1,10 @@
+function MN(m,n) {
+ for(let i = m; i<= n; i++) {
+ console.log(i) }
+ 
+ }
+ 
+ 
+ MN(5,2)
+ MN(6,1)
+ MN(10,1)
