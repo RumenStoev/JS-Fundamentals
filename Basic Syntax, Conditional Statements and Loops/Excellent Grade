@@ -1,0 +1,15 @@
+function grade(arg) {
+    if(arg>= 5.5) {
+        console.log("Excellent")
+    } else {
+        console.log("Not excellent")
+    }
+}
+
+
+grade(10)
+grade(5.5)
+grade(6)
+grade(3)
+grade(5.3)
+grade(5)
