@@ -1,0 +1,14 @@
+function multily(num) {
+      console.log(num * 2)
+    return num
+}
+
+
+multily(2)
+multily(10)
+multily(1)
+multily(4)
+multily(8)
+multily(5)
+
+
