@@ -1,0 +1,12 @@
+function whileLoop(n) {
+
+    while(n >= 1) {
+        console.log(n);
+        n--
+    }
+}
+
+
+whileLoop(10)
+whileLoop(5)
+whileLoop(3)
