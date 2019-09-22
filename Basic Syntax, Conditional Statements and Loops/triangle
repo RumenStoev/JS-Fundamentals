@@ -1,0 +1,13 @@
+function triangle(n) {
+    let output = "";
+    for(let row = 1; row <= n; row++) {
+        for(let col = 1; col<= row; col++) {
+            output += row  + " ";
+        }
+      output += '\n';
+    }
+    console.log(output)
+}
+
+
+triangle(3)
