@@ -1,0 +1,32 @@
+function nameEnglish(num) {
+     let data = num.toString().split('').pop();
+
+     if(data == 1) {
+         console.log('one')
+     } else if(data == 2) {
+         console.log('two')
+
+     } else if(data == 3) {
+         console.log('three')
+     } else if(data === 4) {
+         console.log('four')
+     } else if(data == 5) {
+         console.log('five')
+     } else if(data == 6) {
+         console.log('six')
+     } else if(data == 7 ) {
+         console.log('seven')
+     } else if(data == 8) {
+         console.log('eight')
+     } else  if(data == 9) {
+         console.log('nine')
+     }
+
+}
+
+nameEnglish(512)
+->two
+nameEnglish(1)
+-> one
+nameEnglish(1643)
+-> three
