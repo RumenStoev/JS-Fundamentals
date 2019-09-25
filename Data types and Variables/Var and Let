@@ -1,0 +1,19 @@
+
+1.{ 
+
+  vat number = 5;
+  console.log(number)
+}
+  console.log(number)
+  ->5;
+  ->5;
+  
+2. {
+     let num  = 5;
+     console.log(num)
+     }
+     
+     console.log(num)
+     
+     ->5
+     ->indefined // let is not global scope
