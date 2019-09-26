@@ -1,0 +1,13 @@
+function  solve(input) {
+  let year = input * 100;
+  let days = Math.trunc(year * 365.2422)
+  let hours = 24 * days;
+  let minutes = 60 * hours;
+  console.log(`${input} centuries = ${year} ` + `years = ${days} days = ${hours} hours` + ` = ${minutes} minutes`)
+}
+
+console.log(
+  solve(1)
+)
+
+-> 1 centuries = 100  years= 36524 days= 876576 hours= 52594560 minutes
