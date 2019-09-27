@@ -1,0 +1,11 @@
+function lower(n) {
+let result = n==n.toLowerCase()?console.log("lower-case"):console.log("upper-case")
+return result
+}
+
+
+lower("Z")
+->upper-case
+
+lower("z")
+->lower-case
