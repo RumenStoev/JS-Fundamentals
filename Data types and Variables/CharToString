@@ -1,0 +1,4 @@
+function solve(inp1,inp2,inp3) {
+     let result = inp1 + inp2 + inp3;
+     return result
+}
