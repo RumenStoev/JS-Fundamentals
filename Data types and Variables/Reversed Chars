@@ -1,0 +1,3 @@
+function solve(inp1,inp2,inp3) {
+    return `${inp3} ${inp2} ${inp1}`
+}
