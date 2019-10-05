@@ -1,0 +1,15 @@
+function solve(n,inputArr) {
+  let argument = n === inputArr.length ? inputArr.reverse().join(" ").toString() : inputArr.reverse().slice(inputArr.length-n).join(" ").toString()
+
+
+
+return argument
+
+
+}
+
+console.log(
+  
+   solve(3, [10, 20, 30, 40, 50])
+
+)
