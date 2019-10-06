@@ -1,0 +1,27 @@
+function solve(arr1,arr2) {
+ 
+  arr1.forEach((element,index) => {
+   let includes = arr2.includes(element)
+   if(includes) {
+     console.log(element)
+   }
+  })
+
+  for(let index = 0; index<= arr1.length; index++) {
+    let element = arr1[index]
+  }
+   
+
+}
+
+
+console.log(
+  solve(
+    ['Hey','hello',2,4,'Peter','e'],
+    ['Petar',10,'hey',4,'hello','2']
+  )
+)
+
+
+->hello
+4
