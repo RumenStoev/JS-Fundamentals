@@ -1,0 +1,35 @@
+function solve(arr) {
+  
+   let originSum = 0;
+   let modifiedSum = 0;
+   let outputArr =[];
+
+
+   for(let i = 0; i<= arr.length-1; i++) {
+       
+     let currentValue = arr[i];
+     originSum+= currentValue
+       
+     if(currentValue % 2 === 0) {
+        
+        currentValue += i;
+        outputArr.push(currentValue)
+     } else {
+       currentValue -= i;
+       outputArr.push(currentValue)
+     }
+      modifiedSum += currentValue;
+   }
+ 
+  console.log(outputArr)
+console.log(originSum)
+console.log(modifiedSum)
+  
+}
+console.log(
+  solve([5,15,23,56,35])
+)
+
+->[ 5, 14, 21, 59, 31 ]
+134
+130
