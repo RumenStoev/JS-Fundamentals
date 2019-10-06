@@ -7,9 +7,7 @@ function solve(arr1,arr2) {
    }
   })
 
-  for(let index = 0; index<= arr1.length; index++) {
-    let element = arr1[index]
-  }
+ 
    
 
 }
