@@ -1,0 +1,25 @@
+function merge(arr1,arr2) {
+  let result = []
+
+  for(let i = 0; i < arr1.length; i++) {
+    if(i % 2 === 0) {
+      let firstNum = Number(arr1[i])
+      let secondNum = Number(arr2[i])
+     
+      result.push(firstNum + secondNum)
+    } else {
+      result.push(arr1[i] + arr2[i])
+    }
+  }
+  return result.join(" - ")
+}
+
+
+console.log(
+  merge(
+    ['5','15','23','56','35'],
+    ['17','22','87','36','11']
+  )
+)
+
+->22 - 1522 - 110 - 5636 - 46
