@@ -1,0 +1,6 @@
+function repeat(arg1,arg2) {
+return art1.repeat(arg2)
+}
+
+console.log(repeat('abv',3))
+->abvabvabv
