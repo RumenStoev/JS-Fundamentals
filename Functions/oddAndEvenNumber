@@ -1,0 +1,24 @@
+function oddAndEven(num) {
+ let oddDigit = 0;
+ let evenDigit = 0;
+
+  let result =  num.toString().split('')
+ 
+  result.filter((x) => {
+   let n = parseInt(x)
+   if(n % 2 === 0 ) {
+     evenDigit += n;
+
+   }else {
+     oddDigit += n;
+   }
+  })
+
+return `Odd sum = ${oddDigit}, Even sum = ${evenDigit}`
+}
+
+console.log(
+  oddAndEven(1000435)
+)
+
+-> Odd sum = 9, Even sum = 4
