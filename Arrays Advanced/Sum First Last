@@ -1,0 +1,10 @@
+function solve(arg) {
+    return Number(arg[0]) + Number(arg[arg.length-1])
+}
+
+console.log(
+    solve(['20','30','40'])
+)
+
+
+->60
