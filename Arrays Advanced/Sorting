@@ -1,0 +1,23 @@
+function sorting(arr) {
+
+  let result1 = arr.slice().sort((a,b) => a - b)
+  let result2 = arr.slice().sort((a,b) => b - a )
+  
+
+  let output = [];
+  for(let i = 0; i< arr.length; i++) {
+    if( i % 2=== 0) {
+      output.push(result2.shift())
+    } else {
+      output.push(result1.shift())
+    }
+  }
+return output
+
+}
+
+console.log(
+    sorting([1, 21, 3, 52, 69, 63, 31,
+2, 18, 94])
+)
+->[ 94, 1, 69, 2, 63, 3, 52, 18, 31, 21 ]
