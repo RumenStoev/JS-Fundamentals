@@ -1,0 +1,24 @@
+let actionMap = {
+    true: "unshift",
+    false: "push"
+}
+
+function main(arr) {
+
+    return arr.reduce((result,x) => {
+        result[actionMap[x < 0]](x)
+        return result
+    },[])
+
+ return result;
+
+
+
+ }
+
+
+console.log(
+    main([3, -2, 0,-1])
+)
+
+->[ -1, -2, 3, 0 ]
