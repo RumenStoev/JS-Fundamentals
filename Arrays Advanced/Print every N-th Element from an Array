@@ -1,0 +1,14 @@
+function main(arr) {
+    let result = arr[arr.length-1]
+    return arr.filter((element,index) => {
+        return index % result === 0
+    }).join(" ")
+
+
+}
+
+
+console.log(
+    main(['5','20','31','4','20','2'])
+)
+->5 31 20
