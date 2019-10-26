@@ -1,0 +1,15 @@
+function main(arr) {
+let step = +arr.pop();
+for(let i =0; i< step; i++) {
+    let element = arr.pop()
+    //console.log(element)
+    arr.unshift(element)
+}
+return arr.join(" ")
+
+}
+
+console.log(
+    main(['1','2','3','4','2'])
+)
+->3 4 1 2
