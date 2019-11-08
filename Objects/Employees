@@ -1,0 +1,23 @@
+function solve(data) {
+ for(let el of data) {
+   console.log(
+     `Name: ${el} -- Personal Number: ${el.length}`
+   )
+ }
+}
+
+
+console.log(
+  solve([
+  'Silas Butler',
+  'Adnaan Buckley',
+  'Juan Peterson',
+  'Brendan Villarreal'
+]
+)
+)
+
+->Name: Silas Butler -- Personal Numeber: 12
+Name: Adnaan Buckley -- Personal Numeber: 14
+Name: Juan Peterson -- Personal Numeber: 13
+Name: Brendan Villarreal -- Personal Numeber: 18
