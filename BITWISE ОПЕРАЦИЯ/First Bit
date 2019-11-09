@@ -1,0 +1,9 @@
+function solve(num){
+    
+    let result = num >> 1;
+    let all  = result & 1;
+    
+    console.log(all)
+}
+console.log(solve(2))
+->1
