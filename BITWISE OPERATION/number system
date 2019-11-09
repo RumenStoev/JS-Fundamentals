@@ -1,0 +1,27 @@
+//Convert binary to decimal 
+
+let foo = 0b1011
+console.log(foo)
+->13
+
+
+let binary = "1101000";
+let digit = parseInt(binary, 2);
+console.log(digit);
+
+
+->104
+
+
+
+//Octal number system
+
+let part = 0o1234567
+console.log(part)
+->342391
+
+
+
+
+
+
