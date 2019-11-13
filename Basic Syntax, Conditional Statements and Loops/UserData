@@ -1,0 +1,21 @@
+function formatDate(userDate) {
+     let result = new Array(userDate);
+     let endOfTask = '';
+     for(let dat of result) {
+
+          let [month,day,year] = dat.split("/")
+
+            endOfTask+= year;
+          endOfTask+=month;
+          endOfTask+=day
+     }
+
+    return  endOfTask
+
+
+}
+
+console.log(formatDate("12/31/2014"));
+
+
+->20141231
