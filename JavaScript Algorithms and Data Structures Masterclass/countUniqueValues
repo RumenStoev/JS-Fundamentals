@@ -1,0 +1,17 @@
+function solve(arr) {
+ let ar = [];
+   for(let a of arr) {
+       if(!ar.includes(a)) {
+           ar.push(a)
+       }
+   }
+   return ar.length
+
+}
+
+
+console.log(
+    solve([1,2,3,4,4,4,7,7,12,12,13])
+)
+
+->7
