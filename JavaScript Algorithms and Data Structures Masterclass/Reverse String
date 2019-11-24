@@ -1,0 +1,14 @@
+function solve(arr) {
+    let result = arr.split(""); //Create a Stirng to Array
+    let allResult = result.reverse() //Reverse Array argument
+    return String(allResult.join("")) //Create from Array to String
+
+
+
+}
+
+console.log(
+    solve('awesome')
+)
+
+->emosewa
