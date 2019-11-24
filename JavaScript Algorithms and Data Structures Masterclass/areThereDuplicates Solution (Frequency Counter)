@@ -8,3 +8,9 @@ function areThereDuplicates() {
   }
   return false;
 }
+
+
+//Another solution 
+function areThereDuplicates() {
+  return new Set(arguments).size !== arguments.length;
+}
