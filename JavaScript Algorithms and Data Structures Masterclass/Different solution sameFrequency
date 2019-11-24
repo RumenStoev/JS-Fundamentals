@@ -1,0 +1,27 @@
+function sameFrequency(num1, num2){
+    let result1 = String(num1);
+    let result2 = String(num2);
+   let all1 = 0
+    let all2 = 0
+    for(let i = 0; i< result1.length; i++) {
+        all1 += +result1[i]
+    }
+    for (let i = 0; i< result2.length; i++) {
+         all2 += +result2[i]
+    }
+
+    if(all1!== all2) {
+        return false
+    } else {
+        return  true
+    }
+
+
+
+
+}
+console.log(
+    sameFrequency(183,281)
+)
+
+->false
