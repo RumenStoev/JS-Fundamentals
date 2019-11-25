@@ -1,0 +1,11 @@
+//Binary Search exercise
+
+function solve(a,b) {
+    return a.indexOf(b)
+
+}
+
+
+console.log(
+    solve([1,2,3,4,5],3)
+)
