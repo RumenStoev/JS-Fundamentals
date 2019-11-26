@@ -1,0 +1,38 @@
+function solve(arr) {
+    let allWagons = arr.shift().split(' ').map(Number)
+    let maxCapacity = +arr.shift();
+
+   for(let el of arr) {
+        let token = el.split(" ")
+       if(token.length === 2) {
+
+           allWagons.push(+token[1])
+
+       } else {
+           let passangersCount = +token[0];
+           for(let i = 0; allWagons.length; i++) {
+               let currentCapacity = allWagons[i];
+
+               if(passangersCount + currentCapacity <= maxCapacity) {
+                   allWagons[i] += passangersCount
+                   break;
+               }
+           }
+       }
+
+
+
+    }
+
+
+
+  return allWagons
+}
+
+console.log(
+    solve( [ '32 54 21 12 4 0 23', '75', 'Add 10', 'Add 0', '30', '10', '75' ])
+)
+->[
+  72, 54, 21, 12, 4,
+  75, 23, 10,  0
+]
