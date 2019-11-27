@@ -1,0 +1,11 @@
+function solve(a,b,c) {
+
+    return a.substr(b,c)
+}
+
+
+console.log(
+    solve("ASentance",1,8)
+)
+
+->Sentance
