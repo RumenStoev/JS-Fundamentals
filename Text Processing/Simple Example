@@ -25,3 +25,14 @@ console.log(
     solve("Word")
 )
 ->Wordend
+
+
+function solve(arr) {
+    let a = "Hello ".concat(arr)
+    return a
+}
+
+console.log(
+    solve("Word")
+)
+->Hello Word
