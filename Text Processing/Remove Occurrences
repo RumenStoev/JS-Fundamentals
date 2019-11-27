@@ -1,0 +1,13 @@
+function solve(key,text) {
+   let result = text.replace(key,"");
+   while (result.indexOf(key) != -1) {
+       result = result.replace(key,"")
+   }
+   return result
+
+}
+
+console.log(
+    solve("ice","kicegiciceeb")
+)
+->kgb :D
