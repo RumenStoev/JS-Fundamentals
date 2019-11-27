@@ -1,0 +1,18 @@
+function reavealWorld(par1,par2) {
+   let parametar1 = par1.split(" ")
+
+   let result = par2.split(" ,")
+  for(let el of result) {
+      if(el.includes("*".repeat(5))) {
+          result = el.replace("*".repeat(5),par1)
+      }
+  }
+  console.log(result)
+
+
+}
+
+console.log(
+    reavealWorld('great','softuni is ***** place for learning new programming languages')
+)
+->softuni is great place for learning new programming languages
