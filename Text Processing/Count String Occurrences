@@ -1,0 +1,12 @@
+function solve(par1,par2) {
+    let word = par1.split(" ");
+    let counter = 0;
+    for(let el of word) {
+        if(el.indexOf(par2) != -1) {
+            counter = el.length
+        }
+    }
+    return counter
+}
+
+->2
