@@ -10,3 +10,17 @@ function solve(par1,par2) {
 }
 
 ->2
+
+
+
+function solve(par1,par2) {
+    let result = par1.split(" ")
+    if(result.includes(par2)) {
+        console.log(par2.length)
+    } 
+}
+
+console.log(
+    solve("This is a word and it also is a sentence is","is")
+)
+->2 
