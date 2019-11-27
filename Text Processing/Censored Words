@@ -1,0 +1,18 @@
+// Write a function that receives a text as a first parameter and a single word as a second. Find all occurrences of that
+// word in the text and replace them with the corresponding count of &#39;*&#39;.
+
+
+function censoredWord(par1,par2) {
+
+    let result = par1
+    while(result.indexOf(par2) != -1) {
+        result = result.replace(par2, "*".repeat(par2.length))
+    }
+   console.log(result)
+
+}
+
+console.log(
+    censoredWord("A small sentence with some words small","small")
+)
+->A ***** sentence with some words *****
