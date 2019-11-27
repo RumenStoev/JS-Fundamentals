@@ -13,3 +13,15 @@ console.log(
 o
 r
 d
+
+function solve(arr) {
+    let result = arr;
+    let result2 = result.concat("end");
+    
+    console.log(result2)
+}
+
+console.log(
+    solve("Word")
+)
+->Wordend
