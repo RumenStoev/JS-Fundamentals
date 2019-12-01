@@ -1,0 +1,58 @@
+function changeName(arr) {
+    let name = arr.shift()
+    for(let element of arr) {
+        let item = element.split(" ")
+        let command = item[0]
+        let commandTwo = item[1];
+        let commandThree = item[2]
+
+        switch(command) {
+
+            case "Case":
+            commandTwo === 'lower' ? name = name.toLowerCase() : name = name.toUpperCase();
+             console.log(name)
+                break
+            case "Reverse":
+                let reverceName = name.substring(commandTwo,commandThree).split(" ").reverse().join("")
+                console.log(reverceName)
+                break
+            case "Cut":
+                if(!name.includes(commandTwo)) {
+                    console.log(`The word ${name} doesn't contain ${commandTwo}.`)
+                }
+                else {
+                    name.replace(commandTwo,"")
+                    console.log(name)
+                }
+                break
+            case "Replace":
+                if(name.includes(commandTwo)) {
+                    name.replace(commandTwo,"*")
+                }
+                console.log(name)
+                break
+            case "Check":
+                if(!name.includes(commandTwo)) {
+                    console.log(`Your username must contain ${commandTwo}.`)
+                } else {
+                    console.log("Valid")
+                }
+
+                break
+            case "Sing up":
+                break
+        }
+    }
+
+
+
+}
+
+
+console.log(
+    changeName([ 'Pesho', 'Case lower', 'Cut ES', 'Check @', 'Sign up' ])
+)
+
+->pesho
+The word pesho doesn't contain ES.
+Your username must contain @.
