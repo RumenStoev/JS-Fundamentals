@@ -1,0 +1,18 @@
+function solve(arr) {
+
+    let input = {};
+
+    arr.forEach(element => {
+        let data = element.split(" ");
+        input[data[0]] = data[1]
+    })
+
+   for(let key in input) {
+       console.log(`${key} -> ${input[key]}`)
+   }
+
+}
+
+->Tim -> 0876566344
+Peter -> 0877547887
+Bill -> 0896543112
