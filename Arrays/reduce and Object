@@ -1,0 +1,16 @@
+let element  = [1,2,3,4,5,6,7,8,8];
+
+
+let result = element.reduce((accumulator,currentValue,index) => {
+      if(!accumulator[currentValue]) {
+          accumulator[currentValue] = 1
+      } else {
+          accumulator[currentValue]++
+      }
+      return accumulator
+},{})
+
+console.log(result)
+
+
+->{ '1': 1, '2': 1, '3': 1, '4': 1, '5': 1, '6': 1, '7': 1, '8': 2 }  //check the repeating numbers
