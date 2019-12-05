@@ -14,3 +14,26 @@ console.log(result)
 
 
 ->{ '1': 1, '2': 1, '3': 1, '4': 1, '5': 1, '6': 1, '7': 1, '8': 2 }  //check the repeating numbers
+
+
+const data = [
+    {a: 'happy', b: 'robin', c: ['blue','green']},
+    {a: 'tired', b: 'panther', c: ['green','black','orange','blue']},
+    {a: 'sad', b: 'goldfish', c: ['green','red']}
+];
+
+
+let result = data.reduce((accumulator,currentValue,index) => {
+        currentValue.c.forEach(x => {
+            accumulator.push(x)
+        })
+    return accumulator
+},[])
+
+console.log(result)
+->[
+  'blue',   'green',
+  'green',  'black',
+  'orange', 'blue',
+  'green',  'red'
+  ]
