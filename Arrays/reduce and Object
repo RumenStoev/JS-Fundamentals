@@ -56,3 +56,27 @@ let result = data.reduce((accumulator,currentValue,index) => {
 
 console.log(result)
 ->[ 'blue', 'green', 'black', 'orange', 'red' ]
+
+
+function solve(arr) {
+    let command = {
+        counter: 1,
+        add: (arr,num) => [num,...arr],
+        remove: (arr) =>  [...arr.slice(0,arr.length-1)]
+    };
+
+    let result = arr.reduce((acc,curr) => {
+        acc = command[curr](acc,command.counter);  // Construction command[?]() function whitch need call
+        command.counter++;
+        return acc;
+    },[])
+    return result.length === 0 ? "Empty" : result.join("\n")
+}
+
+
+console.log(
+    solve(['add','add','remove','add','add'])
+)
+->5 
+  4
+  2
