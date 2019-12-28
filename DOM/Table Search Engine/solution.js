@@ -12,6 +12,7 @@ function solve() {
                 x.parentElement.className = "select"
             }
         })
+        input.value = ""
     }
 }
 
