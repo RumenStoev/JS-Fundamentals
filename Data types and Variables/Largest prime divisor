@@ -1,0 +1,24 @@
+  function solve(input1) {
+      
+    let divisor = 2;
+    while(input1 > 1){
+       if(input1 % divisor === 0){ 
+           input1 /= divisor;
+       } else {
+           divisor++;
+       }
+       //console.log(Math.max(divisor));
+   } 
+   
+   return Math.max(divisor)
+ 
+
+    
+   
+}
+
+
+console.log(solve(20))
+
+
+->5
