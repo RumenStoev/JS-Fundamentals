@@ -36,3 +36,50 @@ console.log(
   72, 54, 21, 12, 4,
   75, 23, 10,  0
 ]
+
+//Another way
+
+function train(arr) {
+  let wagons = arr.shift().split(" ").map(Number);
+  let maxCapacity = +arr.shift();
+  
+  let commands = {
+      "Add":(number) => {
+          wagons.push(number)
+      }
+  }
+  function findFreePlaces(value) {
+     for(let i = 0; i< wagons.length; i++) {
+         if(wagons[i] + value <= maxCapacity) {
+             wagons[i]+=value
+             break
+         }
+     }
+           
+  }
+
+  for(let i = 0; i < arr.length; i++){
+       let [command,passengers] = arr[i].split(" ");
+       passengers = Number(passengers)
+    
+      if(isNaN(command) === false) {
+          passengers = Number(command)
+      }
+      
+      (commands.hasOwnProperty(command)) ? commands[command](passengers) : findFreePlaces(passengers)
+  }
+
+return wagons.join(" ")
+}
+
+
+console.log(train(
+    ['32 54 21 12 4 0 23',
+'75',
+'Add 10',
+'Add 0',
+'30',
+'10',
+'75']
+))
+-> 72 54 21 12 4 75 23 10 0
