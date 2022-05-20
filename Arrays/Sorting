@@ -1,0 +1,28 @@
+function sorting(arr) {
+  let sortInputArray = arr.sort((a,b) => b - a);
+  let counter = sortInputArray.length / 2
+  let result = []; 
+ 
+
+  for(let i = 0; i < counter; i++) {
+       let smallNumber = sortInputArray[i];
+       let bigNumber = sortInputArray[sortInputArray.length -1 - i];
+       result.push(smallNumber,bigNumber)
+  }
+  
+
+return result.join(" ")
+
+}
+
+console.log(
+    sorting([1, 21, 3, 52, 69, 63, 31, 2, 18, 94])
+)
+
+console.log(
+    sorting([34, 2, 32, 45, 690, 6, 32, 7, 19, 47])
+)
+
+
+-> 94 1 69 2 63 3 52 18 31 21
+-> 690 2 47 6 45 7 34 19 32 32
