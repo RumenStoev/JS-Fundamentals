@@ -1,0 +1,48 @@
+function bombNumbers(arr, coordination) {
+    let searchElement = coordination[0];
+    let fildDetonation = coordination[1]
+    let findIndexItem = arr.indexOf(searchElement)
+    let left = findIndexItem - fildDetonation;
+    let right = findIndexItem + fildDetonation;
+
+    if (left === 0) {
+        right += 1
+    }
+    while (findIndexItem !== -1) {
+        arr.splice(left, right)
+        findIndexItem = arr.indexOf(searchElement);
+    }
+    
+    return arr.reduce((a,b) => a + b,0) //Sum result of all elements in the array
+}
+
+
+console.log(
+    bombNumbers(
+        [1, 1, 2, 1, 1, 1, 2, 1, 1, 1], [2, 1]
+    ))
+
+console.log(
+    bombNumbers([1, 7, 7, 1, 2, 3],
+        [7, 1])
+)    
+
+console.log(
+    bombNumbers(
+        [1, 2, 2, 4, 2, 2, 2, 9],
+    [4, 2]
+    )
+)
+
+
+console.log(
+    bombNumbers(
+        [1, 4, 4, 2, 8, 9, 1],
+    [9, 3]
+    )
+)
+
+->4
+->6
+->12
+->5
