@@ -1,0 +1,23 @@
+
+
+
+
+function singCheck(num1, num2, num3) {
+  if ((num1) * (num2) * (num3) > 0) {
+    return "Positive"
+  } else {
+    return "Negative"
+  }
+}
+
+
+ console.log(singCheck(5, 12, -15))
+ console.log(singCheck(-6, -12, 14))
+ console.log(singCheck(-1, -2, -3))
+ console.log(singCheck(-5, 1, -1))
+ 
+ 
+ -> Negative
+    Positive
+    Negative
+    Positive
