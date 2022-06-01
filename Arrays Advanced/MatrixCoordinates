@@ -1,0 +1,67 @@
+//This task need repair!
+
+function airPollution(arr1, arr2) {
+    let pollutions = arr2;
+    let matrix = arr1.map(arr => arr.split(" ").map(Number))
+
+
+
+    let loopCoordinates = {//This has to be in other Data Structure more efficiant!
+        "startRow": (command, index) => {
+
+            if (command === "breeze") return index;
+            if (command === "gale") return 0
+            if (command === "smog") return 0
+
+        },
+        "endRow": (command, index) => {
+            if (command === "breeze") return index//Switch ????
+            if (command === "gale") return 4
+            if (command === "smog") return Math.round(Math.sqrt(index)) - 1
+        },
+        "startColumn": (command, index) => {
+            if (command === "breeze") return 0//Switch ????
+            if (command === "gale") return index
+            if (command === "smog") return 0
+        },
+        "endColumn": (command, index) => {
+            if (command === "breeze") return 4;//Switch ????
+            if (command === "gale") return index;
+            if (command === "smog") return Math.round(Math.sqrt(index)) - 1
+        }
+    }
+
+
+    let pollutionChanges = {
+        "breeze": (currentBlock) => currentBlock - 15,
+        "gale": (currentBlock) => currentBlock - 20,
+        "smog": (currentBlock, index) => currentBlock + index
+    }
+
+    pollutions.map((com, ind) => {
+        let [command, indexArea] = com.split(" ");          //Math.round(Math.sqrt(index)) ???
+        indexArea = Number(indexArea);
+
+        //Matrix manipulation according to commands!
+       
+        for (let row = loopCoordinates["startRow"](command, indexArea); row <= loopCoordinates["endRow"](command, indexArea); row++) {
+            for (let column = loopCoordinates["startColumn"](command, indexArea); column <= loopCoordinates["endColumn"](command, indexArea); column++) {
+                matrix[row][column] = pollutionChanges[command](matrix[row][column], indexArea)
+            }
+        }
+
+    })
+    return matrix.map((row,ind) => row.filter((number,index) => number > 50 ))
+}
+
+
+console.log(
+    airPollution(['5 7 72 14 4',
+        '41 35 37 27 33',
+        '23 16 27 42 12',
+        '2 20 28 39 14',
+        '16 34 31 10 24'],
+        ['breeze 1', 'gale 2', 'smog 25'])
+)
+
+->[ [ 77 ], [ 51 ], [ 67 ], [ 64 ], [ 59 ] ]
