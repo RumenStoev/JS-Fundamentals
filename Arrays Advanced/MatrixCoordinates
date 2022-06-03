@@ -64,4 +64,144 @@ console.log(
         ['breeze 1', 'gale 2', 'smog 25'])
 )
 
+
+function airPollution(arr1, arr2) {
+    let pollutions = arr2;
+    let matrix = arr1.map(arr => arr.split(" ").map(Number))
+    let result = [];
+
+
+    /////Constraints of input data/////
+
+    /*    • The number of rows and columns for the matrix will always be 5
+     • The number in each block will be an integer in the range [0..1000] inclusive
+     • The number of elements in the second input argument will be in the range [0..100] inclusive 
+     • Given smog’s value will be an integer in the range [0..100] inclusive
+     • Given indexes will always be valid
+     */
+
+    function checkLength(value, index) {
+        (value.length > 5) ? 5 : (value < 0) ? 0 : value
+
+    }
+
+    function checkBlocks(value, index) {
+        if (value > 1000 || value < 0) {
+            return;
+        }
+        (value > 1000) ? 1000 : (value < 0) ? 0 : value
+    }
+
+    matrix.map(checkLength).map(checkBlocks)
+
+
+    //////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+    /////////Change coordinations of the loop, according to the task (commands)////////////////
+    let loopCoordinates = {
+        "startRow": (command, index) => {
+
+            switch (command) {
+                case "breeze":
+                    return index;
+                case "gale":
+                    return 0;
+                case "smog":
+                    return 0;
+            }
+
+        },
+
+        "endRow": (command, index) => {
+            switch (command) {
+                case "breeze":
+                    return index;
+                case "gale":
+                    return 4;
+                case "smog":
+                    //return Math.floor(Math.sqrt(index)) - 1;
+                    return 4
+            }
+
+        },
+        "startColumn": (command, index) => {
+            switch (command) {
+                case "breeze":
+                    return 0;
+                case "gale":
+                    return index;
+                case "smog":
+                    return 0
+            }
+
+        },
+        "endColumn": (command, index) => {
+            switch (command) {
+                case "breeze":
+                    return 4;
+                case "gale":
+                    return index;
+                case "smog":
+                    //return Math.floor(Math.sqrt(index)) - 1;
+                    return 4
+            }
+
+        }
+    }
+
+    ///////////////////////////////////////////////////////////////////////////
+
+    ///////Change the pollution of the blocks,according to the task///////////
+    let pollutionChanges = {
+        "breeze": (currentBlock) => currentBlock - 15,
+        "gale": (currentBlock) => currentBlock - 20,
+        "smog": (currentBlock, index) => currentBlock + index
+    }
+    //////////////////////////////////////////////////////////////////////////
+    pollutions.map((com, ind) => {
+        let [command, indexArea] = com.split(" ");
+        indexArea = Number(indexArea);
+       if(command === 'smog') {
+           if(indexArea > 100) {
+               indexArea = 100
+           }else if(indexArea < 0) {
+               indexArea = 0;
+           }
+       }
+
+        for (let row = loopCoordinates["startRow"](command, indexArea); row <= loopCoordinates["endRow"](command, indexArea); row++) {
+            for (let column = loopCoordinates["startColumn"](command, indexArea); column <= loopCoordinates["endColumn"](command, indexArea); column++) {
+                matrix[row][column] = pollutionChanges[command](matrix[row][column], indexArea)
+            }
+        }
+
+    })
+
+
+
+    /////Find Coordinations of the blocks more than 50//////////////
+    matrix.map((arr, indexArr) => arr.map((number, index) =>
+        (number > 50) ? result.push([indexArr, index]) : false
+    ))
+    /////////////////////////////////////////////////////////////////
+
+    if (result.length > 0) {
+        return `Polluted areas:${result.map(arr => ` [${arr[0]}-${arr[1]}]`)}`
+    } else {
+        return `No polluted areas`
+    }
+
+}
+
+console.log(
+    airPollution(['5 7 2 14 4',
+        '21 14 2 5 3',
+        '3 16 7 42 11112',
+        '2 20 8 39 14',
+        '7 34 1 10 24'],
+        ['breeze 1', 'gale 2', 'smog 35'])
+)
+
 ->[ [ 77 ], [ 51 ], [ 67 ], [ 64 ], [ 59 ] ]
