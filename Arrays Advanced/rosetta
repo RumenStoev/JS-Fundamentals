@@ -1,0 +1,90 @@
+//Must be completed!
+function rosettaStone(arr) {
+    let counter = +arr.shift();
+    let matrix = arr.map(ed => ed.split(" ").map(Number));
+    let templateCounter = []
+    let result = [];
+
+    for (let i = 0; i < counter; i++) {
+        templateCounter.push(matrix.shift())
+    }
+
+    let symbols = {
+        0: " ",
+        1: "A",
+        2: "B",
+        3: "C",
+        4: "D",
+        5: "E",
+        6: "F",
+        7: "G",
+        8: "H",
+        9: "I",
+        10: "J",
+        11: "K",
+        12: "L",
+        13: "M",
+        14: "A",
+        15: "B",
+        16: "C",
+        17: "D",
+        18: "E",
+        19: "F",
+        20: "G",
+        21: "H",
+        22: "I",
+        23: "J",
+        24: "K",
+        25: "L",
+        26: "Z"
+
+    };
+
+    function decodeElements(value) {
+      let counter = 0;
+        while (value >= 0) {
+          
+
+           counter =  value- 27
+          
+        }
+       return counter
+    }
+    console.log(decodeElements(63))
+
+    let rowCounter = 0;
+    let columnCounter = 0;
+    //  let length = 0;
+    for (let row = 0; row < matrix.length; row++) {
+        // let length = Math.floor(matrix[row].length / counter);
+
+        (rowCounter === counter) ? rowCounter = 0 : rowCounter;
+
+        for (let column = 0; column < matrix[row].length; column++) {
+
+            matrix[row][column] += templateCounter[rowCounter][(columnCounter === counter) ? columnCounter = 0 : columnCounter];
+
+            columnCounter++
+
+        }
+
+        rowCounter++;
+        columnCounter = 0
+
+    }
+
+    // return matrix;
+
+}
+
+
+console.log(
+    rosettaStone(['2',
+        '59 36',
+        '82 52',
+        '4 18 25 19 8',
+        '4 2 8 2 18',
+        '23 14 22 0 22',
+        '2 17 13 19 20',
+        '0 9 0 22 22'])
+)
