@@ -75,7 +75,7 @@ function rosettaStone(arr) {
             
             counterColumn++;
 
-            if (counterColumn === template[0].length) counterColumn = 0;
+            if (counterColumn === template[counterRow].length) counterColumn = 0;
         }
         counterColumn = 0;
 
