@@ -12,7 +12,7 @@ function Inventory(arr) {
         
     }
  
-    return Object.values(result).sort((a,b) => a.level - b.level).forEach(item => {
+    return result.sort((a,b) => a.level - b.level).forEach(item => {
         console.log(`Hero: ${item.Hero}\nlevel => ${item.level}\nitems => ${item.items}`)
         })
 }
