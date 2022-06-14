@@ -4,7 +4,8 @@ function makeDictionary(arr) {
 
     arr.sort().forEach(json => {
         let currentObject = JSON.parse(json)
-        for (let [key, value] of Object.entries(currentObject)) {
+       
+       for (let [key, value] of Object.entries(currentObject)) {
             if (!checkExistItem.includes(key)) {
                 checkExistItem.push(key)
                 console.log(`Term: ${key} => Definition: ${value}`)
