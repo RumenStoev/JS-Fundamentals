@@ -16,13 +16,13 @@ function System(arr) {
 
     }
     let sortByLetter = (a, b) => a.localeCompare(b)
-    let sortByAlpabetical = (a, b) => Object.keys(result[b]).length - Object.keys(result[a]).length
+    let sortByLenghtComponent = (a, b) => Object.keys(result[b]).length - Object.keys(result[a]).length
 
 
     function compareByLenghtAndAlphabetical(object) {
         return Object.keys(object)
                      .sort(sortByLetter)
-                     .sort(sortByAlpabetical)
+                     .sort(sortByLengthComponent)
 
     }
 
