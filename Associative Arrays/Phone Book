@@ -1,18 +1,25 @@
-function solve(arr) {
 
-    let input = {};
+ function solve(arr) {
+    let result = new Map();
+     for(let i = 0; i< arr.length; i++) {
+         let [name,phone] = arr[i].split(" ");
+          result.set(name,phone)
+     }
 
-    arr.forEach(element => {
-        let data = element.split(" ");
-        input[data[0]] = data[1]
-    })
+     return result.forEach((key,value) => {
+        console.log(`${value} -> ${key}`)
+     })
+ }
 
-   for(let key in input) {
-       console.log(`${key} -> ${input[key]}`)
-   }
-
-}
-
-->Tim -> 0876566344
-Peter -> 0877547887
-Bill -> 0896543112
+  console.log(
+    solve(['Tim 0834212554',
+     'Peter 0877547887',
+         'Bill 0896543112',
+    
+     'Tim 0876566344'])
+  )
+  
+  
+  ->Tim -> 1710778898
+    Peter -> 877547887
+    Bill -> 896543112
