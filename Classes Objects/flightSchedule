@@ -42,6 +42,40 @@ function flightSchedule(arr) {
     })
 }
 
+///////////////////Another Solution////////////////////////////////////////////////
+function flightSchedule(arr) {
+
+    let [currentFlights, changedFlights, searchCommand] = arr;
+    let exitPattern = {
+        Destination: "",
+        Status: searchCommand[0]
+    }
+
+    changedFlights = changedFlights.map((item) => {
+        let [name, city] = item.split(" ")
+        return name
+    })
+    
+    return currentFlights.forEach(item => {
+        let [name, ...city] = item.split(" ");
+        city = city.join(" ")
+        if (searchCommand[0] === "Cancelled" && changedFlights.includes(name)) {
+
+            exitPattern["Destination"] = city
+
+            console.log(exitPattern)
+        }
+        if (searchCommand[0] === "Ready to fly" && !changedFlights.includes(name)) {
+            exitPattern["Destination"] = city
+            console.log(exitPattern)
+        }
+    })
+
+
+}
+
+/////////////////////////////////////////////////////////////////////////////////////
+
 console.log(
     flightSchedule([['WN269 Delaware',
     'FL2269 Oregon',
