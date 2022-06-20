@@ -1,0 +1,60 @@
+Has to be finished!!!
+
+function BrowserHistory(obj, arr) {
+    let result = [];
+    let sortCommands = {
+        "Open Tabs": (key,command, name) => closeOrOpen[command](key,command,name),
+
+        "Recently Closed": (command, name) => closeOrOpen[command](key,command,name),//Here has a problem?
+
+        "Browser Logs": (command, name, value) => { }
+    }
+    let closeOrOpen = {
+        "Close": (key,command, name) => deleteElement(pushElement(key,command, name)),//?
+        "Open": (command, name) => pushElement(command, name)
+    }
+
+    let pushElement = (key,command, name) => { //This fn can be modified!
+        if(!obj[key].includes(name)){
+        obj[key].push(name);
+        } //if name exist continue
+        return [key,command,name]
+    }
+
+    let deleteElement = ([key,command, name]) => { //This fn can be modified
+        let searchElement = obj[key].indexOf(name);
+        if (searchElement !== -1) {
+            obj[key].splice(searchElement, 1);
+           // pushElement(key,command,name)
+           // console.log(obj[key])
+        }
+    }
+
+    for (let [key, value] of Object.entries(obj)) {
+        if (key === "Browser Name") continue;  //?
+        arr.forEach(element => {
+           
+
+            let [command, name] = element.split(" ");
+            sortCommands[key](key,command, name)
+        })
+    }
+
+    return obj;
+
+}
+
+console.log(
+    BrowserHistory({
+        "Browser Name": "Google Chrome",
+        "Open Tabs": ["Facebook", "YouTube", "Google Translate"],
+        "Recently Closed": ["Yahoo", "Gmail"],
+        "Browser Logs": ["Open YouTube", "Open Yahoo", "Open Google Translate",
+            "Close Yahoo", "Open Gmail", "Close Gmail", "Open Facebook"]
+    },
+        ["Close Facebook", "Open StackOverFlow", "Open Google"]
+
+
+
+    )
+)
