@@ -1,0 +1,75 @@
+
+function CardGame(arr) {
+    let result = {}
+
+    let firstCounting = {
+        "J": 11,
+        "Q": 12,
+        "K": 13,
+        "A": 14,
+    }
+    let secondCounting = {
+        "S": 4,
+        "H": 3,
+        "D": 2,
+        "C": 1,
+    }
+
+
+
+    arr.forEach(item => {
+        let [name, points] = item.split(": ");
+        let splitPoints = points.split(", ")
+
+
+        if (!result.hasOwnProperty(name)) {
+            result[name] = []
+
+        }
+
+        splitPoints.filter(x => (!result[name].includes(x)) ? result[name].push(x) : false)
+
+
+
+
+    })
+
+
+    Object.keys(result).forEach(item => {
+        let counter = 0
+        result[item].map(x => {
+            var hasNumber = /\d/;
+            let [first, second] = (hasNumber.test(x)) ? x.match(/\D+|\d+/g) : x.split("")
+            if (!isNaN(first)) {
+                counter += Number(first * secondCounting[second]) //157
+            } else {
+                counter += Number(firstCounting[first] * secondCounting[second])
+            }
+        })
+        console.log(`${item}: ${counter}`);
+    })
+
+}
+
+console.log(
+    CardGame([
+
+        'Peter: 2C, 4H, 9H, AS, QS',
+
+        'Tomas: 3H, 10S, JC, KD, 5S, 10S',
+
+        'Andrea: QH, QC, QS, QD',
+
+        'Tomas: 6H, 7S, KC, KD, 5S, 10C',
+
+        'Andrea: QH, QC, JS, JD, JC',
+
+        'Peter: JD, JD, JD, JD, JD, JD'
+
+    ])
+)
+
+-> Peter: 167
+   Tomas: 175
+   Andrea: 197
+
