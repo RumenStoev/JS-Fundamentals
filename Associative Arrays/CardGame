@@ -15,7 +15,9 @@ function CardGame(arr) {
         "C": 1,
     }
 
-
+    function filterCards(arr, name) {
+        arr.filter(x => (!result[name].includes(x)) ? result[name].push(x) : false) //fn
+    }
 
     arr.forEach(item => {
         let [name, points] = item.split(": ");
@@ -24,33 +26,33 @@ function CardGame(arr) {
 
         if (!result.hasOwnProperty(name)) {
             result[name] = []
-
         }
 
-        splitPoints.filter(x => (!result[name].includes(x)) ? result[name].push(x) : false)
-
-
-
-
+        filterCards(splitPoints, name)
     })
 
+    let sumCurrentCards = arr => {
+        let counter = 0;
+        arr.forEach(x => { //fn
 
-    Object.keys(result).forEach(item => {
-        let counter = 0
-        result[item].map(x => {
             var hasNumber = /\d/;
-            let [first, second] = (hasNumber.test(x)) ? x.match(/\D+|\d+/g) : x.split("")
-            if (!isNaN(first)) {
-                counter += Number(first * secondCounting[second]) //157
+            let [first, second] = (hasNumber.test(x)) ? x.match(/\D+|\d+/g) : x.split("") //fn
+            if (!isNaN(first)) {  //fn
+                counter += Number(first * secondCounting[second]);
             } else {
-                counter += Number(firstCounting[first] * secondCounting[second])
+                counter += Number(firstCounting[first] * secondCounting[second]) //fn
             }
+
         })
+        return counter;
+    }
+    Object.keys(result).forEach(item => {
+        let counter = sumCurrentCards(result[item])
+
         console.log(`${item}: ${counter}`);
     })
 
 }
-
 console.log(
     CardGame([
 
