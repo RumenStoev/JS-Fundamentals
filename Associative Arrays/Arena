@@ -1,0 +1,84 @@
+Has to repair!
+function ArenaTier(arr) {
+    let result = {};
+    let rangeSkill = skill => (skill < 0) ? 0 : (skill > 1000) ? 1000 : skill
+    let findIndexs = (arr,technique) => arr.some((x,i) => (x[0] === technique) ? i : false); 
+    arr.forEach(str => {
+        if (str === "Ave Cesar") {
+            output(result)
+            return;
+        }
+
+
+        if (str.includes(" -> ")) {
+            let [name, technique, skill] = str.split(" -> ");
+            if (name === "Pesho") return
+            skill = rangeSkill(skill)
+            if (!result.hasOwnProperty(name)) {
+                result[name] = [];
+            }
+            // if(findIndexs(result[name],technique) !== false) {
+            // result[name][findIndexs(result[name],technique)][1]+= +skill
+            // return;
+            // }
+              result[name].push([technique, +skill])
+            
+        
+
+        if (str.includes(" vs ")) {
+            fightGladiatorVSGladiator(str);
+        }
+
+    }
+    })
+
+    function fightGladiatorVSGladiator(str) {
+
+        let [fighter1, fighter2] = str.split(" vs ");
+
+
+        function findEqualTechnique(fighter1, fighter2) {
+            result[fighter1].map(x => result[fighter2].filter(y => (x[0] === y[0] && x[1] > y[1]) ? delete result[fighter2] : false))
+        }
+        if (result.hasOwnProperty(fighter1) && result.hasOwnProperty(fighter2))
+            if (result[fighter1].length > result[fighter2].length) {
+                findEqualTechnique(fighter1, fighter2)
+            } else {
+                findEqualTechnique(fighter2, fighter1)
+            }
+    }
+
+    function prepareResult(obj) {
+        let allPoints = []
+        Object.keys(obj).forEach(name => {
+            let sum = result[name].reduce((acc, value) => acc + value[1], 0)
+            let techniques = result[name].reduce((acc, value) => {
+                if (acc)
+                    acc.push([value[0], value[1]])
+                return acc
+            }, [])
+            allPoints.push([name, sum, techniques.sort().sort((a, b) => b[1] - a[1])])
+        })
+        return allPoints.sort((a, b) => b[1] - a[1])
+
+    }
+
+    function output(obj) {
+        prepareResult(result).forEach(item => {
+            let [name, skill, techniques] = item;
+            console.log(`${name}: ${skill} skill`)
+            techniques.forEach(item => {
+                console.log(`- ${item[0]} <!> ${item[1]}`)
+            })
+
+        })
+    }
+
+}
+console.log(
+    ArenaTier(
+
+        ['Pesho -> Duck -> 400','Julius -> Shield -> 100', 'Pesho -> Duck -> 400', 'Julius -> Shield -> 100', 'Gladius -> Heal -> 200', 'Gladius -> Support -> 250', 'Gladius -> Shield -> 250', 'Peter vs Gladius', 'Gladius vs Julius', 'Gladius vs Maximilian', 'Ave Cesar']
+
+    )
+)
