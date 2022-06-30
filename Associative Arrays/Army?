@@ -1,0 +1,51 @@
+
+function Armies(arr) {
+    let result = {};
+    let armyList = []
+    let counter = 0;
+    //Filter for Leaders and separate the their armies and army count!
+    arr.forEach(item => {
+        let leaders = item.split("arrives");
+
+        if (leaders[1] === "") {
+            result[leaders[0].trim()] = {};
+        }
+        armyList.push(leaders[0].trim())
+
+    })
+    armyList.forEach((item, index, array) => {
+
+        let [name, armyResources] = item.split(": ");
+        if (armyResources !== undefined) armyResources = armyResources.split(", ")
+
+        if (result.hasOwnProperty(name) && !name.includes("+") && armyResources !== undefined) {
+
+            result[name][armyResources[0].trim()] = Number(armyResources[1])
+            counter = index;
+        }
+        else {
+            name = name.split("+")
+           
+            let currentName = array[counter].split(": ")[0]
+            if (name.length === 1 && name[0].includes("defeated")) {
+                let deleteName = name[0].split("defeated")[0].trim()
+                delete result[deleteName]
+
+            }
+            if (name.length > 1 && result[currentName][name[0].trim()] !== undefined) {
+                result[currentName][name[0].trim()] += Number(name[1])
+            }
+
+        }
+    })
+    let totalPoints = Object.entries(result).reduce((acc,value) => {
+        let t = Object.values(value).reduce((acc,value) => acc + value,0);
+        console.log(t)
+    },[])
+    return totalPoints
+}
+
+
+console.log(
+    Armies(['Rick Burr arrives', 'Fergus: Wexamp, 30245', 'Rick Burr: Juard, 50000', 'Findlay arrives', 'Findlay: Britox, 34540', 'Wexamp + 6000', 'Juard + 1350', 'Britox + 4500', 'Porter arrives', 'Porter: Legion, 55000', 'Legion + 302', 'Rick Burr defeated', 'Porter: Retix, 3205'])
+)
