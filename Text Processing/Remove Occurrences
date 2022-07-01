@@ -6,6 +6,17 @@ function solve(key,text) {
    return result
 
 }
+function removeOccurences(str, str2) {
+    let allWord = str2;
+    let searchWord = str;
+
+    while (allWord.includes(searchWord)) {
+        allWord = allWord.replace(searchWord, "")
+
+    }
+
+    return allWord
+}
 
 console.log(
     solve("ice","kicegiciceeb")
