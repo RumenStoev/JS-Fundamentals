@@ -1,11 +1,10 @@
-function solve(a,b,c) {
-
-    return a.substr(b,c)
-}
-
+ function subString(str,num1,num2) {
+   let result = str.substr(num1,num2)
+   return result;
+ }
 
 console.log(
-    solve("ASentance",1,8)
+    subString("ASentance", 1, 8)
 )
 
 ->Sentance
