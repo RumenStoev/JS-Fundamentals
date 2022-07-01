@@ -2,17 +2,21 @@
 // word in the text and replace them with the corresponding count of &#39;*&#39;.
 
 
-function censoredWord(par1,par2) {
+function CensoredWords(str, replaceWord) {
+    let result = str;
+    let searchWord = replaceWord
+    
+    while (result.includes(searchWord)) {
+        result = result.replace(searchWord, "*".repeat(searchWord.length))
 
-    let result = par1
-    while(result.indexOf(par2) != -1) {
-        result = result.replace(par2, "*".repeat(par2.length))
     }
-   console.log(result)
-
+    return result
 }
 
 console.log(
-    censoredWord("A small sentence with some words small","small")
+    CensoredWords("A small sentence with some words",
+
+        "small")
 )
+
 ->A ***** sentence with some words *****
