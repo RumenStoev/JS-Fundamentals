@@ -1,21 +1,26 @@
 function HardWords(arr) {
     let result = arr.shift().split(" ")
+    
     let searchingWords = arr.pop().reduce((acc, value) => {
         let length = value.length
         acc[length] = value;
         return acc;
     }, {});
-  
-    result.forEach((item, i, array) => {
-       if (item.includes("_") ) array[i] = searchingWords[`${item.length}`] 
-        
-       if(item.includes("_") && item.includes("."))  array[i] = `${searchingWords[`${item.length - 1}`]}${item[item.length-1]}`
+    
+    let checkSymbols = str => {
 
-       if(item.includes("_") && item.includes(","))  array[i] = `${searchingWords[`${item.length - 1}`]}${item[item.length -1]}`
-      
+        let symbol = str.charCodeAt(0)
+
+        if (symbol >= 31 && symbol <= 64) return true
+
+    }
+    result.forEach((item, i, array) => {
+        if (item.includes("_")) array[i] = searchingWords[`${item.length}`]
+
+        if (item.includes("_") && checkSymbols(item[item.length - 1])) array[i] = `${searchingWords[`${item.length - 1}`]}${item[item.length - 1]}`
+
     })
     return result.join(" ")
-     
 }
 
 console.log(
