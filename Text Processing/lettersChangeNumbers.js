@@ -17,7 +17,8 @@ function lettersChangeNumbers(str) {
         let root = +item.join("");
         
         requirements["root"] = root;
-       (left !== undefined) ? total[index] = requirements["leftFn"](left) : (right!== undefined) ?  total[index] = requirements["rightFn"](right) : false
+        total[index] = requirements["leftFn"](left)
+        total[index] = requirements["rightFn"](right)
        
     })
 
