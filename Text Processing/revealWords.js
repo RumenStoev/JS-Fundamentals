@@ -18,9 +18,9 @@ function revealWords(str1, sentence) {
 console.log(
     revealWords(
         'great, learning',
-        'softuni is ***** place for ******** new programming languages'
+        'The office is ***** place for ******** new programming languages'
     )
 )
 
 
-->softuni is great place for learning new programming languages
+->The office is great place for learning new programming languages
