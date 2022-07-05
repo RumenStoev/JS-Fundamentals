@@ -1,3 +1,35 @@
+//Short way,but with few points from the test system!
+function lettersChangeNumbers(str) {
+    let result = str.split(" ");
+    let total = [];
+
+    let checkStrUpperCase = str => str.charAt() === str.charAt().toUpperCase()
+    let findCharCode = str => str.toUpperCase().charCodeAt(0) - 64
+    let requirements = {
+        root: 0,
+        leftFn: function (v) { return (checkStrUpperCase(v)) ? this.root /= findCharCode(v) : this.root *= findCharCode(v) },
+        rightFn: function (v) { return (checkStrUpperCase(v)) ? this.root -= findCharCode(v) : this.root += findCharCode(v) }
+    }
+    result.forEach((item, index, arr) => {
+        item = item.split("")
+        let left = item.shift()
+        let right = item.pop()
+        let root = +item.join("");
+        
+        requirements["root"] = root;
+       (left !== undefined) ? total[index] = requirements["leftFn"](left) : (right!== undefined) ?  total[index] = requirements["rightFn"](right) : false
+       
+    })
+
+    return `${total.reduce((acc, value) => acc + value, 0).toFixed(2)}`
+}
+
+
+
+
+
+
+
 function lettersChangeNumbers(str) {
     let total = [];
     let tree = {};
