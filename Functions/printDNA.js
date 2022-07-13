@@ -11,13 +11,10 @@ function printDNA(number) {
     }
     let result = [];
 
-
     while (number !== 0) {
 
         let element = symbol[counter2].split("")
         result.push(pattern[counter](element[0], element[1]))
-
-
 
         if (counter === 3) {
             counter = -1;
@@ -28,11 +25,9 @@ function printDNA(number) {
         counter2++
         counter++
 
-
         number--
     }
     return result.join("\n")
-
 }
 **AT**
 *C--G*
