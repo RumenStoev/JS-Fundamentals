@@ -6,7 +6,8 @@ function intersect(a,b) {
 
 function solve(arr) {
 let result = 0;
-for(let i = 0; i<arr.length; i++) {
+
+  for(let i = 0; i<arr.length; i++) {
   result+= intersect(arr[i],arr[i+1])
 }
 return result
