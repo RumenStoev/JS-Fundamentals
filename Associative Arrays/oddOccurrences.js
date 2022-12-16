@@ -6,8 +6,7 @@ function oddOccurrences(arr) {
 
     array.forEach(item =>
 
-        (!result.has(item)) ? result.set(item, 1)
-            : result.set(item, result.get(item) + 1))
+        (!result.has(item)) ? result.set(item, 1) : result.set(item, result.get(item) + 1))
 
     result.forEach((value, key) => {
         (value % 2 === 1) ? output.push(key) : false
